@@ -38,8 +38,11 @@ After making the configuration changes, run the following command to start all t
 Airflow Web UI: Access the Airflow web interface at http://<your_host_ip>:8080.
 
 Default username: airflow
+
 Default password: airflow (Change this for production!)
+
 Creating DAGs: Create DAG (Directed Acyclic Graph) files defining your workflows within the dags directory.
+
 
 ![image](https://github.com/user-attachments/assets/353e341f-4948-4e65-bbe2-6f7122afb3cd)
 
