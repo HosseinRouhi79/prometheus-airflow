@@ -52,7 +52,8 @@ StatsD Integration: The StatsD exporter collects metrics from Airflow tasks and 
 
 ### Grafana
 For improved visualization, consider using Grafana. Start by creating a Grafana container with the following command:
-`docker run -d -p 3000:3000 --name=grafana grafana/grafana-enterprise`
+
+`docker run -d -p 3000:3000 --name=grafana grafana/grafana`
 
 ![image](https://github.com/user-attachments/assets/6fb25901-eacd-49bf-9348-2ce71abb66f8)
 
