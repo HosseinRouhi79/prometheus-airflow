@@ -1,0 +1,22 @@
+[2024-07-24T04:17:56.598+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-24T04:17:56.699+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: example_bash_decorator.make_dynamic_dirs manual__2024-07-24T04:17:47.286171+00:00 [queued]>
+[2024-07-24T04:17:56.724+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: example_bash_decorator.make_dynamic_dirs manual__2024-07-24T04:17:47.286171+00:00 [queued]>
+[2024-07-24T04:17:56.724+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-24T04:17:56.765+0000] {taskinstance.py:2330} INFO - Executing <Task(_BashDecoratedOperator): make_dynamic_dirs> on 2024-07-24 04:17:47.286171+00:00
+[2024-07-24T04:17:56.797+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=81) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-24T04:17:56.838+0000] {standard_task_runner.py:64} INFO - Started process 103 to run task
+[2024-07-24T04:17:56.875+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'example_bash_decorator', 'make_dynamic_dirs', 'manual__2024-07-24T04:17:47.286171+00:00', '--job-id', '13', '--raw', '--subdir', '/home/***/.local/lib/python3.12/site-packages/***/example_dags/example_bash_decorator.py', '--cfg-path', '/tmp/tmp9o7atl5u']
+[2024-07-24T04:17:56.895+0000] {standard_task_runner.py:91} INFO - Job 13: Subtask make_dynamic_dirs
+[2024-07-24T04:17:57.238+0000] {task_command.py:426} INFO - Running <TaskInstance: example_bash_decorator.make_dynamic_dirs manual__2024-07-24T04:17:47.286171+00:00 [running]> on host 4216da14c098
+[2024-07-24T04:17:57.678+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='example_bash_decorator' AIRFLOW_CTX_TASK_ID='make_dynamic_dirs' AIRFLOW_CTX_EXECUTION_DATE='2024-07-24T04:17:47.286171+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-24T04:17:47.286171+00:00'
+[2024-07-24T04:17:57.680+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-24T04:17:57.781+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-07-24T04:17:57.782+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'mkdir -p $AIRFLOW_HOME/$BASE_DIR/foo/bar/baz']
+[2024-07-24T04:17:57.843+0000] {subprocess.py:86} INFO - Output:
+[2024-07-24T04:17:57.852+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-07-24T04:17:57.853+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-24T04:17:57.891+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=example_bash_decorator, task_id=make_dynamic_dirs, run_id=manual__2024-07-24T04:17:47.286171+00:00, execution_date=20240724T041747, start_date=20240724T041756, end_date=20240724T041757
+[2024-07-24T04:17:57.948+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-07-24T04:17:57.961+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

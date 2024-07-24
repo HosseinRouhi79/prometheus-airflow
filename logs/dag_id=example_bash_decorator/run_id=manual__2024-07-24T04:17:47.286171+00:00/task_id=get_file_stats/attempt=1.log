@@ -1,0 +1,51 @@
+[2024-07-24T04:17:56.585+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-24T04:17:56.684+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: example_bash_decorator.get_file_stats manual__2024-07-24T04:17:47.286171+00:00 [queued]>
+[2024-07-24T04:17:56.705+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: example_bash_decorator.get_file_stats manual__2024-07-24T04:17:47.286171+00:00 [queued]>
+[2024-07-24T04:17:56.705+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-24T04:17:56.750+0000] {taskinstance.py:2330} INFO - Executing <Task(_BashDecoratedOperator): get_file_stats> on 2024-07-24 04:17:47.286171+00:00
+[2024-07-24T04:17:56.780+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=83) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-24T04:17:56.783+0000] {standard_task_runner.py:64} INFO - Started process 100 to run task
+[2024-07-24T04:17:56.821+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'example_bash_decorator', 'get_file_stats', 'manual__2024-07-24T04:17:47.286171+00:00', '--job-id', '10', '--raw', '--subdir', '/home/***/.local/lib/python3.12/site-packages/***/example_dags/example_bash_decorator.py', '--cfg-path', '/tmp/tmpwx2bszdo']
+[2024-07-24T04:17:56.879+0000] {standard_task_runner.py:91} INFO - Job 10: Subtask get_file_stats
+[2024-07-24T04:17:57.143+0000] {task_command.py:426} INFO - Running <TaskInstance: example_bash_decorator.get_file_stats manual__2024-07-24T04:17:47.286171+00:00 [running]> on host 4216da14c098
+[2024-07-24T04:17:57.576+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='example_bash_decorator' AIRFLOW_CTX_TASK_ID='get_file_stats' AIRFLOW_CTX_EXECUTION_DATE='2024-07-24T04:17:47.286171+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-24T04:17:47.286171+00:00'
+[2024-07-24T04:17:57.582+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-24T04:17:57.709+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-07-24T04:17:57.710+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'stat ']
+[2024-07-24T04:17:57.754+0000] {subprocess.py:86} INFO - Output:
+[2024-07-24T04:17:57.797+0000] {subprocess.py:93} INFO - stat: missing operand
+[2024-07-24T04:17:57.806+0000] {subprocess.py:93} INFO - Try 'stat --help' for more information.
+[2024-07-24T04:17:57.806+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-07-24T04:17:57.807+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-24T04:17:57.831+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/bash.py", line 81, in execute
+    return super().execute(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-07-24T04:17:57.852+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=example_bash_decorator, task_id=get_file_stats, run_id=manual__2024-07-24T04:17:47.286171+00:00, execution_date=20240724T041747, start_date=20240724T041756, end_date=20240724T041757
+[2024-07-24T04:17:57.894+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 10 for task get_file_stats (Bash command failed. The command returned a non-zero exit code 1.; 100)
+[2024-07-24T04:17:57.923+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-07-24T04:17:57.936+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

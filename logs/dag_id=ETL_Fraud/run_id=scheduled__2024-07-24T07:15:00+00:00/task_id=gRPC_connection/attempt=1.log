@@ -1,0 +1,23 @@
+[2024-07-24T09:54:20.464+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-24T09:54:20.585+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL_Fraud.gRPC_connection scheduled__2024-07-24T07:15:00+00:00 [queued]>
+[2024-07-24T09:54:20.631+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL_Fraud.gRPC_connection scheduled__2024-07-24T07:15:00+00:00 [queued]>
+[2024-07-24T09:54:20.632+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-07-24T09:54:20.720+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): gRPC_connection> on 2024-07-24 07:15:00+00:00
+[2024-07-24T09:54:20.750+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=801) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-24T09:54:20.771+0000] {standard_task_runner.py:64} INFO - Started process 863 to run task
+[2024-07-24T09:54:20.802+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ETL_Fraud', 'gRPC_connection', 'scheduled__2024-07-24T07:15:00+00:00', '--job-id', '193', '--raw', '--subdir', 'DAGS_FOLDER/server_DAG.py', '--cfg-path', '/tmp/tmp_p34__s4']
+[2024-07-24T09:54:20.807+0000] {standard_task_runner.py:91} INFO - Job 193: Subtask gRPC_connection
+[2024-07-24T09:54:20.952+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL_Fraud.gRPC_connection scheduled__2024-07-24T07:15:00+00:00 [running]> on host 0542575fe516
+[2024-07-24T09:54:21.263+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='test@test.com' AIRFLOW_CTX_DAG_OWNER='fraud_detector' AIRFLOW_CTX_DAG_ID='ETL_Fraud' AIRFLOW_CTX_TASK_ID='gRPC_connection' AIRFLOW_CTX_EXECUTION_DATE='2024-07-24T07:15:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-24T07:15:00+00:00'
+[2024-07-24T09:54:21.267+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-24T09:54:21.269+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-07-24T09:54:21.272+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'echo "gRPC_connection"']
+[2024-07-24T09:54:21.307+0000] {subprocess.py:86} INFO - Output:
+[2024-07-24T09:54:21.317+0000] {subprocess.py:93} INFO - gRPC_connection
+[2024-07-24T09:54:21.318+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-07-24T09:54:21.319+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-24T09:54:21.415+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ETL_Fraud, task_id=gRPC_connection, run_id=scheduled__2024-07-24T07:15:00+00:00, execution_date=20240724T071500, start_date=20240724T095420, end_date=20240724T095421
+[2024-07-24T09:54:21.496+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-07-24T09:54:21.511+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

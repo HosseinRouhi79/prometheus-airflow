@@ -1,0 +1,24 @@
+[2024-07-24T04:17:56.592+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-24T04:17:56.692+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: example_bash_decorator.runme_2 manual__2024-07-24T04:17:47.286171+00:00 [queued]>
+[2024-07-24T04:17:56.710+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: example_bash_decorator.runme_2 manual__2024-07-24T04:17:47.286171+00:00 [queued]>
+[2024-07-24T04:17:56.712+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-24T04:17:56.738+0000] {taskinstance.py:2330} INFO - Executing <Task(_BashDecoratedOperator): runme_2> on 2024-07-24 04:17:47.286171+00:00
+[2024-07-24T04:17:56.750+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=86) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-24T04:17:56.763+0000] {standard_task_runner.py:64} INFO - Started process 98 to run task
+[2024-07-24T04:17:56.768+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'example_bash_decorator', 'runme_2', 'manual__2024-07-24T04:17:47.286171+00:00', '--job-id', '12', '--raw', '--subdir', '/home/***/.local/lib/python3.12/site-packages/***/example_dags/example_bash_decorator.py', '--cfg-path', '/tmp/tmpgjo1c_o5']
+[2024-07-24T04:17:56.777+0000] {standard_task_runner.py:91} INFO - Job 12: Subtask runme_2
+[2024-07-24T04:17:57.209+0000] {task_command.py:426} INFO - Running <TaskInstance: example_bash_decorator.runme_2 manual__2024-07-24T04:17:47.286171+00:00 [running]> on host 4216da14c098
+[2024-07-24T04:17:57.631+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='example_bash_decorator' AIRFLOW_CTX_TASK_ID='runme_2' AIRFLOW_CTX_EXECUTION_DATE='2024-07-24T04:17:47.286171+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-24T04:17:47.286171+00:00'
+[2024-07-24T04:17:57.640+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-24T04:17:57.794+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-07-24T04:17:57.795+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'echo example_bash_decorator__runme_2__20240724 && sleep 2']
+[2024-07-24T04:17:57.825+0000] {subprocess.py:86} INFO - Output:
+[2024-07-24T04:17:57.830+0000] {subprocess.py:93} INFO - example_bash_decorator__runme_2__20240724
+[2024-07-24T04:17:59.835+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-07-24T04:17:59.836+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-24T04:17:59.863+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=example_bash_decorator, task_id=runme_2, run_id=manual__2024-07-24T04:17:47.286171+00:00, execution_date=20240724T041747, start_date=20240724T041756, end_date=20240724T041759
+[2024-07-24T04:17:59.900+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-07-24T04:17:59.934+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-07-24T04:17:59.937+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

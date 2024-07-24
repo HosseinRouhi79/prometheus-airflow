@@ -1,0 +1,134 @@
+[2024-07-24T04:18:09.805+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-24T04:18:09.832+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL-download.load manual__2024-07-24T04:17:58.701076+00:00 [queued]>
+[2024-07-24T04:18:09.841+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL-download.load manual__2024-07-24T04:17:58.701076+00:00 [queued]>
+[2024-07-24T04:18:09.842+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-07-24T04:18:09.856+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): load> on 2024-07-24 04:17:58.701076+00:00
+[2024-07-24T04:18:09.863+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=141) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-24T04:18:09.865+0000] {standard_task_runner.py:64} INFO - Started process 143 to run task
+[2024-07-24T04:18:09.865+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ETL-download', 'load', 'manual__2024-07-24T04:17:58.701076+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/ETL_Server_Access_Log_Processing.py', '--cfg-path', '/tmp/tmp0snoobp2']
+[2024-07-24T04:18:09.868+0000] {standard_task_runner.py:91} INFO - Job 21: Subtask load
+[2024-07-24T04:18:09.919+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL-download.load manual__2024-07-24T04:17:58.701076+00:00 [running]> on host 4216da14c098
+[2024-07-24T04:18:10.006+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='test@test.com' AIRFLOW_CTX_DAG_OWNER='ETL' AIRFLOW_CTX_DAG_ID='ETL-download' AIRFLOW_CTX_TASK_ID='load' AIRFLOW_CTX_EXECUTION_DATE='2024-07-24T04:17:58.701076+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-24T04:17:58.701076+00:00'
+[2024-07-24T04:18:10.007+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-24T04:18:10.008+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-07-24T04:18:10.009+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'zip log.zip /home/***/capitalized.txt']
+[2024-07-24T04:18:10.022+0000] {subprocess.py:86} INFO - Output:
+[2024-07-24T04:18:10.025+0000] {subprocess.py:93} INFO - /usr/bin/bash: line 1: zip: command not found
+[2024-07-24T04:18:10.025+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2024-07-24T04:18:10.026+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-24T04:18:10.038+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2024-07-24T04:18:10.044+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=ETL-download, task_id=load, run_id=manual__2024-07-24T04:17:58.701076+00:00, execution_date=20240724T041758, start_date=20240724T041809, end_date=20240724T041810
+[2024-07-24T04:18:10.059+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/utils/email.py:154: RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+  send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+
+[2024-07-24T04:18:10.059+0000] {configuration.py:1053} WARNING - section/key [smtp/smtp_user] not found in config
+[2024-07-24T04:18:10.059+0000] {email.py:271} INFO - Email alerting: attempt 1
+[2024-07-24T04:18:10.067+0000] {configuration.py:1053} WARNING - section/key [smtp/smtp_user] not found in config
+[2024-07-24T04:18:10.068+0000] {email.py:271} INFO - Email alerting: attempt 1
+[2024-07-24T04:18:10.068+0000] {taskinstance.py:879} ERROR - Failed to send email to: ['test@test.com']
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2479, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode, session=session)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2676, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2701, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1063, in _email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 80, in send_email
+    return backend(
+           ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 154, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 273, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    return smtplib.SMTP(host=host, port=port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 853, in create_connection
+    raise exceptions[0]
+  File "/usr/local/lib/python3.12/socket.py", line 838, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 877, in _handle_failure
+    task_instance.email_alert(error, failure_context["task"])
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3163, in email_alert
+    _email_alert(task_instance=self, exception=exception, task=task)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1065, in _email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 80, in send_email
+    return backend(
+           ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 154, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 273, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    return smtplib.SMTP(host=host, port=port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 853, in create_connection
+    raise exceptions[0]
+  File "/usr/local/lib/python3.12/socket.py", line 838, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+[2024-07-24T04:18:10.093+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 21 for task load (Bash command failed. The command returned a non-zero exit code 127.; 143)
+[2024-07-24T04:18:10.141+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-07-24T04:18:10.158+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-24T04:18:10.159+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

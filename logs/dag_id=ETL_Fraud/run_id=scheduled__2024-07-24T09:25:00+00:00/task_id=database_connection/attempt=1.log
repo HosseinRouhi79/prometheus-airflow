@@ -1,0 +1,24 @@
+[2024-07-24T09:54:49.446+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-24T09:54:49.531+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL_Fraud.database_connection scheduled__2024-07-24T09:25:00+00:00 [queued]>
+[2024-07-24T09:54:49.567+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL_Fraud.database_connection scheduled__2024-07-24T09:25:00+00:00 [queued]>
+[2024-07-24T09:54:49.568+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-07-24T09:54:49.599+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): database_connection> on 2024-07-24 09:25:00+00:00
+[2024-07-24T09:54:49.607+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=1010) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-24T09:54:49.627+0000] {standard_task_runner.py:64} INFO - Started process 1029 to run task
+[2024-07-24T09:54:49.642+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ETL_Fraud', 'database_connection', 'scheduled__2024-07-24T09:25:00+00:00', '--job-id', '233', '--raw', '--subdir', 'DAGS_FOLDER/server_DAG.py', '--cfg-path', '/tmp/tmp4m1vvzc6']
+[2024-07-24T09:54:49.644+0000] {standard_task_runner.py:91} INFO - Job 233: Subtask database_connection
+[2024-07-24T09:54:49.735+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL_Fraud.database_connection scheduled__2024-07-24T09:25:00+00:00 [running]> on host 0542575fe516
+[2024-07-24T09:54:49.909+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='test@test.com' AIRFLOW_CTX_DAG_OWNER='fraud_detector' AIRFLOW_CTX_DAG_ID='ETL_Fraud' AIRFLOW_CTX_TASK_ID='database_connection' AIRFLOW_CTX_EXECUTION_DATE='2024-07-24T09:25:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-24T09:25:00+00:00'
+[2024-07-24T09:54:49.912+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-24T09:54:49.913+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-07-24T09:54:49.913+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'echo "database_connection"']
+[2024-07-24T09:54:49.937+0000] {subprocess.py:86} INFO - Output:
+[2024-07-24T09:54:49.940+0000] {subprocess.py:93} INFO - database_connection
+[2024-07-24T09:54:49.940+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-07-24T09:54:49.943+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-24T09:54:49.994+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ETL_Fraud, task_id=database_connection, run_id=scheduled__2024-07-24T09:25:00+00:00, execution_date=20240724T092500, start_date=20240724T095449, end_date=20240724T095449
+[2024-07-24T09:54:50.057+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-07-24T09:54:50.096+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-07-24T09:54:50.114+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
